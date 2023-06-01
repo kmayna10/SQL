@@ -1,0 +1,19 @@
+CREATE TABLE inventory (id integer primary key, item_name TEXT, vendor TEXT, material TEXT, price INTEGER);
+INSERT INTO inventory VALUES (1, " 1.0 Fixed Circular Knitting Needles", "Addi", "Aluminium", 15);
+INSERT INTO inventory VALUES (2, "KPPPM", "Koigu", "Merino Wool", 15);
+INSERT INTO inventory VALUES (3, "Point Protectors", "Tulip", "Elastomer", 6);
+INSERT INTO inventory VALUES (4, "Small Project Bag", "Magner", "Waxed Canvas, Leather", 30);
+INSERT INTO inventory VALUES (5, "Chester Sock Yarn", "Dye Mad Yarns", "75% Superwash Wool, 25% Nylon", 30);
+INSERT INTO inventory VALUES (6, "June Sock Club 2023", "Farmer's Daughter Fibers", "75% Superwash Wool, 25% Nylon", 30);
+INSERT INTO inventory VALUES (7, "Maker's Bag", "Della Q", "Waxed Canvas, Metal Accents", 50);
+INSERT INTO inventory VALUES (8, "Tosh Merino Light Shibui Yarn", "Madeline Tosh, Shibui Fibers", "100% Superwash Merino Wool", 20);
+INSERT INTO inventory VALUES (9, "Just One More Row Counter", "Sew to Speak", "Metal, Plastic Backing", 7);
+INSERT INTO inventory VALUES (10, "Row Counter", "Cocoknits", "Plastic", 15);
+INSERT INTO inventory VALUES (11, "Yarn Caddy", "Handcrafted", "Wood", 40);
+INSERT INTO inventory VALUES (12, "All-Ohio Shop Hop Magazine", "Rowan", "Magazine", 11.50);
+INSERT INTO inventory VALUES (13, "Wildflower Tape Measure", "Liberty Fabrics", "Metal, Fabric", 16);
+INSERT INTO inventory VALUES (14, "Maker's Train Case", "Della Q", "Metal, Fabric", 80);
+INSERT INTO inventory VALUES (15, "Interchangeable Needle Case", "Twig and 
+Horn", "Metal, Fabric", 75);
+SELECT * FROM inventory ORDER BY price DESC;
+SELECT * FROM inventory WHERE price > 20;
