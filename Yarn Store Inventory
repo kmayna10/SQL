@@ -15,5 +15,6 @@ INSERT INTO inventory VALUES (13, "Wildflower Tape Measure", "Liberty Fabrics", 
 INSERT INTO inventory VALUES (14, "Maker's Train Case", "Della Q", "Metal, Fabric", 80);
 INSERT INTO inventory VALUES (15, "Interchangeable Needle Case", "Twig and 
 Horn", "Metal, Fabric", 75);
+SELECT * FROM inventory;
 SELECT * FROM inventory ORDER BY price DESC;
-SELECT * FROM inventory WHERE price > 20;
+SELECT * FROM inventory WHERE price > 20 ORDER BY price DESC;
