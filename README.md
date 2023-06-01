@@ -1,2 +1,4 @@
-# SQL
-Hello! Welcome to my SQL Portfolio, a code repository containing examples of SQL I have written. Feel free to look around and let me know if you have any questions. 
+# Kristin Maynard's SQL Portfolio
+
+## Hello! Welcome to my SQL Portfolio, a code repository containing examples of SQL I have written. Feel free to look around and send me an email if you have any questions: kmayna10@kent.edu
+
