@@ -1,4 +1,4 @@
-CREATE TABLE inventory (id integer primary key, item_name TEXT, vendor TEXT, material TEXT, price INTEGER);
+CREATE TABLE inventory (id INTEGER primary key, item_name TEXT, vendor TEXT, material TEXT, price INTEGER);
 INSERT INTO inventory VALUES (1, " 1.0 Fixed Circular Knitting Needles", "Addi", "Aluminium", 15);
 INSERT INTO inventory VALUES (2, "KPPPM", "Koigu", "Merino Wool", 15);
 INSERT INTO inventory VALUES (3, "Point Protectors", "Tulip", "Elastomer", 6);
