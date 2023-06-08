@@ -1,0 +1,58 @@
+# Example query set (PostgreSQL)
+
+#Exercise 1. Rename tables to shorter length. Join the two tables (netflix_people as people and netflix_titles_info as titles),
+From this join, I use the show id, which is a shared value, to join the two tables.
+Then, I am able to query from this join the show_id, director (both from people table) and the title and tyle (both from the titles table).
+
+SELECT 
+people.show_id,
+people.director
+titles.title
+titles.type
+FROM "netflix_people" people
+LEFT JOIN "netflix_titles_info" titles
+ON people.show_id=titles.show_id;
+
+#Exercise 2. How many movies are in this database? 
+In this exercise, I will query netflix_title_info for values where the type is movie? Not TV shows or other, but Movies?
+Answer: Number of Movies: 6131
+
+SELECT COUNT (*) FROM "netflix_titles_info"
+WHERE type='Movie';
+
+#Exercise 3. When was the most recent batch of shows added to the database?
+In this exercise, I will need to isolate the column "date_added" from the table "netflix_titles_info"
+To do this, I need to find the most recent, or maximum date value in this column.
+Answer: Most recent addition was 2021-09-25 00:00:00
+
+SELECT MAX (date_added)
+FROM "netflix_titles_info";
+
+#Exercise 4. Order the titles in alphabetical order.
+To do this, I simply select the titles from the “netflix_titles_info” and place them in ascending order. 
+An interesting (but unsurprising) result is the discovery that in these results, there are several shows that begin with a #, followed by all shows with numeric titles, then they continue in traditional alphabetic order (A-Z).
+
+SELECT title
+FROM "netflix_titles_info"
+ORDER BY title ASC;
+
+#Exercise 5. Who is the director for the movie “Across the Universe”? 
+This query required that I join the two tables, using their shared show_id. By using a left join, I selected the director where the title of the film was “Across the Universe”. 
+Answer: Julie Taymor
+
+SELECT director
+FROM "netflix_titles_info" titles
+LEFT JOIN "netflix_people" people
+ON titles.show_id = people.show_id
+WHERE titles.title = 'Across the Universe';
+
+— Exercise 6. What is the oldest movie in the database and what year was it made?
+— This was a straightforward query wherein I pulled from only the netflix_titles_info table. I limited by selection to movies, and put these in ascending order. I then limited the results to see the 10 oldest. 
+— The reason I did not simply limit my query to 1 is that I wanted to be certain I was not just getting one result when there may have been several from that year.
+— Answer: Prelude to War, 1942
+SELECT title, release_year 
+FROM "netflix_titles_info"
+WHERE type = 'Movie'
+ORDER BY release_year ASC
+LIMIT 10;
+
