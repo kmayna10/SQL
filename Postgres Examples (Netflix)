@@ -1,8 +1,8 @@
 # Example query set (PostgreSQL)
 
-#Exercise 1. Rename tables to shorter length. Join the two tables (netflix_people as people and netflix_titles_info as titles),
+#Exercise 1. Alias tables to shorter length. Join the two tables (netflix_people as people and netflix_titles_info as titles),
 From this join, I use the show id, which is a shared value, to join the two tables.
-Then, I am able to query from this join the show_id, director (both from people table) and the title and tyle (both from the titles table).
+Then, I am able to query from this join the show_id, director (both from people table) and the title and type (both from the titles table).
 
 SELECT 
 people.show_id,
@@ -14,7 +14,7 @@ LEFT JOIN "netflix_titles_info" titles
 ON people.show_id=titles.show_id;
 
 #Exercise 2. How many movies are in this database? 
-In this exercise, I will query netflix_title_info for values where the type is movie? Not TV shows or other, but Movies?
+In this exercise, I query netflix_title_info for values where the type is movie? Not TV shows or other, but Movies?
 Answer: Number of Movies: 6131
 
 SELECT COUNT (*) FROM "netflix_titles_info"
