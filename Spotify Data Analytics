@@ -1,1 +1,36 @@
 # Source file: https://www.kaggle.com/datasets/equinxx/spotify-top-50-songs-in-2021?select=spotify_top50_2021.csv
+SQL Spotify Data Analysis
+
+#Creating the table: 
+CREATE TABLE BIT_DB22.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL.  In the initial query, I wanted to locate the relationships between popularity and energy, as well as energy and loudness and loudness and popularity. 
+
+
+SELECT artist_name, track_name,
+avg(energy), avg(loudness), avg(popularity)
+FROM BIT_DB2.Spotifydata
+GROUP BY artist_name, track_name
+ORDER BY popularity DESC
+
