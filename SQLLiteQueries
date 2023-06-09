@@ -1,0 +1,56 @@
+#SQLLiteStudio Queries
+
+#1. How many orders were placed in January?
+SELECT COUNT (orderID) 
+FROM TEST_DB.JanSales
+WHERE length(orderID) = 6 
+AND orderid <> "Order ID”;
+
+#2. How many of the January orders were iPhones?
+SELECT COUNT (orderID) 
+FROM TEST_DB.JanSales
+WHERE Product LIKE "iphone"
+AND length(orderID) = 6 
+AND orderid <> "Order ID”;
+
+#3. What are the distinct account numbers for customers who made orders in February?
+SELECT distinct acctnum
+FROM TEST_DB.customers cust
+
+INNER JOIN TEST_DB.FebSales Feb
+ON cust.order_id=FEB.orderid
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';
+
+#4. What is the least expensive product sold in 
+January? How much did it cost?
+SELECT distinct Product, price
+FROM TEST_DB.JanSales
+WHERE price in(SELECT min(price)
+FROM TEST_DB.JanSales);
+
+#5. How much revenue did each product yield in the month of January?
+SELECT
+sum(Quantity),  
+sum(quantity)*price AS revenue
+FROM TEST_DB.JanSales 
+GROUP BY product;
+
+#6. What products were sold at the location 548 Lincoln St, Seattle, WA 98101? How many of these products were sold? What was the total revenue?
+SELECT
+sum(Quantity), 
+product, 
+sum(quantity)*price AS revenue
+FROM TEST_DB.FebSales 
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product;
+
+#7. How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+SELECT COUNT (distinct cust.acctnum), 
+avg(quantity)* price 
+FROM TEST_DB.FebSales Feb
+LEFT JOIN TEST_DB.customers cust
+ON Feb.orderID = cust.order_id
+WHERE Feb.Quantity > 2
+AND length(orderID)= 6
+AND orderid <> "Order ID";
